@@ -56,8 +56,12 @@ play = [
 	{ run = '''mediainfo "$1"; echo "Press enter to exit"; read _''', block = true, desc = "Show media info", for = "unix" },
 ]
 typora = [
-    { run = 'typora "$@"', desc = "Typora", for = "unix" },
+    { run = 'typora "$@" & disown', desc = "Typora", for = "unix" }, # async run
     { run = 'typora %*', desc = "Typora", for = "windows" },
+]
+drawio = [
+    { run = 'drawio "$@" & disown', desc = "Drawio", for = "unix" }, # async run
+    { run = 'drawio %*', desc = "Drawio", for = "windows" },
 ]
 
 [open]
@@ -66,6 +70,8 @@ rules = [
 	{ name = "*/", use = [ "edit", "open", "reveal" ] },
   # Markdown 
   { name = "*.md", use = [ "typora", "reveal" ] },
+  # Drawio
+  { name = "*.drawio", use = ["drawio", "reveal"]},
 	# Text
 	{ mime = "text/*", use = [ "edit", "reveal" ] },
 	# Image

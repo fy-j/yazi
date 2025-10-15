@@ -3,5 +3,10 @@ use = "yazi-rs/plugins:smart-enter"
 rev = "55bf699"
 hash = "7918aab6a71caf31b58411f789195677"
 
+[[plugin.deps]]
+use = "yazi-rs/plugins:mount"
+rev = "9a52857"
+hash = "4fccaaf10c36dc2466e2438a386ff017"
+
 [flavor]
 deps = []
